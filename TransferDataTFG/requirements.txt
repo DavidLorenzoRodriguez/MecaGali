@@ -1,0 +1,4 @@
+pyodbc
+SQLAlchemy==2.0.38
+python-dotenv==1.0.1
+pandas==2.2.1
