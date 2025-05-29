@@ -1,18 +1,18 @@
 # Configuración de conexiones para SQL Server y MySQL
 SQL_SERVER_ORIGEN_CONFIG = {
-    "server": "Elastic.mrfs.lan",
-    "database": "elastic_mrf",
-    "username": "mrf",
-    "password": "mrf1234",
-    "port": 42019
+    "server": "",
+    "database": "",
+    "username": "",
+    "password": "",
+    "port":
 }
 
 
 MYSQL_CONFIG = {
-    "host": "10.32.1.65",
-    "database": "mecagal",
-    "user": "david.lorenzo@outlook.es",
-    "password": "2StFvscrUWu95HUL"
+    "host": "",
+    "database": "",
+    "user": "",
+    "password": ""
 }
 
 
