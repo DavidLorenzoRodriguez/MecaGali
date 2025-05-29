@@ -1,0 +1,16 @@
+SELECT ROUND(AVG(tiempo_total) / 1000, 2) AS tiempo_medio_operaciones_por_padre_unidad
+FROM (
+    SELECT 
+        VER_ARTICULO_PADRE, 
+        SUM(TIEMPO_VARIABLE) AS tiempo_total
+    FROM (
+        SELECT 
+            VER_ARTICULO_PADRE, 
+            DESC_OPERACION, 
+            MAX(TIEMPO_VARIABLE) AS TIEMPO_VARIABLE
+        FROM operaciones_relacionadas
+        WHERE DESC_OPERACION IS NOT NULL AND DESC_OPERACION != 'Sin Operaciones'
+        GROUP BY VER_ARTICULO_PADRE, DESC_OPERACION
+    ) operaciones_distintas
+    GROUP BY VER_ARTICULO_PADRE
+) tiempos_por_padre;
