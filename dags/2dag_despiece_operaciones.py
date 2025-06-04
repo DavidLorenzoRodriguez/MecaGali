@@ -24,7 +24,7 @@ with DAG(
 
     def relacionar_operaciones():
         try:
-            print("🔌 Conectando a bases de datos...")
+            print("Conectando a bases de datos...")
             conn_transf = BaseHook.get_connection("mariadb_mecagali_transf")
             conn_str_transf = f"mysql+pymysql://{conn_transf.login}:{conn_transf.password}@{conn_transf.host}:{conn_transf.port}/{conn_transf.schema}"
             engine_transf = sqlalchemy.create_engine(conn_str_transf)
@@ -32,7 +32,7 @@ with DAG(
             conn_origen = BaseHook.get_connection("mariadb_mecagali")
             conn_str_origen = f"mysql+pymysql://{conn_origen.login}:{conn_origen.password}@{conn_origen.host}:{conn_origen.port}/{conn_origen.schema}"
             engine_origen = sqlalchemy.create_engine(conn_str_origen)
-            print("✅ Conexión establecida")
+            print("Conexión establecida")
 
             # Cargar jerarquía de artículos (padres e hijos)
             query_jerarquia = "SELECT * FROM jerarquia_articulos"
@@ -42,7 +42,7 @@ with DAG(
             query_operaciones = "SELECT * FROM vmrf_prod_operaciones_despiece"
             df_operaciones = pd.read_sql(query_operaciones, engine_origen)
 
-            print("📊 Datos cargados correctamente")
+            print("Datos cargados correctamente")
 
             # Relacionar operaciones con artículos PADRES
             df_oper_padre = pd.merge(
